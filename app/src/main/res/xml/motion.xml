@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+<!--    <Transition-->
+<!--        app:constraintSetEnd="@layout/layout_motion_end"-->
+<!--        app:constraintSetStart="@layout/layout_motion_start">-->
+
+<!--        <OnClick-->
+<!--            app:clickAction="toggle"-->
+<!--            app:targetId="@+id/vCover" />-->
+<!--        -->
+<!--    </Transition>-->
+
+        <Transition
+            app:constraintSetEnd="@id/end"
+            app:constraintSetStart="@id/start">
+
+            <OnClick
+                app:clickAction="toggle"
+                app:targetId="@+id/vCover" />
+
+        </Transition>
+
+        <ConstraintSet android:id="@+id/start">
+            <Constraint
+                android:id="@+id/bg"
+                android:layout_width="wrap_content"
+                android:layout_height="200dp"
+                android:background="@color/purple_500"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Constraint
+                android:id="@+id/vCover"
+                android:layout_width="103dp"
+                android:layout_height="170dp"
+                android:layout_margin="15dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/movie"
+                app:layout_constraintBottom_toBottomOf="@id/bg"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/bg"
+                app:layout_constraintVertical_bias="0.533"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp" />
+
+            <Constraint
+                android:id="@+id/vIntroduce"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:lineSpacingExtra="5dp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/vCover"
+                app:layout_constraintTop_toTopOf="@id/vCover"
+                android:layout_marginTop="24dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp" />
+
+
+            <Constraint
+                android:id="@+id/vLable"
+                android:layout_width="30dp"
+                android:layout_height="60dp"
+                android:layout_marginEnd="32dp"
+                android:background="@drawable/ic_bookmark"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/vCover"
+                android:layout_marginRight="32dp" />
+
+            <Constraint
+                android:id="@+id/vTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="电影介绍"
+                android:textColor="@color/purple_500"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/bg"
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp" />
+
+            <Constraint
+                android:id="@+id/vContent"
+                android:layout_width="0dp"
+                android:layout_height="213dp"
+                android:layout_margin="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/vTitle"
+                android:layout_marginTop="16dp" />
+        </ConstraintSet>
+
+        <ConstraintSet android:id="@+id/end">
+            <Constraint
+                android:id="@+id/bg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/purple_500"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Constraint
+                android:id="@+id/vCover"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:onClick="onClick"
+                android:scaleType="centerCrop"
+                android:src="@drawable/movie"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Constraint
+                android:id="@+id/vLable"
+                android:layout_width="30dp"
+                android:layout_height="60dp"
+                android:layout_margin="30dp"
+                android:background="@drawable/ic_bookmark"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+        </ConstraintSet>
+
+</MotionScene>

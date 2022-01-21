@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        app:constraintSetEnd="@id/end"
+        app:constraintSetStart="@id/start"
+        app:duration="3000"
+        app:motionInterpolator="bounce">
+
+        <OnClick
+            app:clickAction="toggle"
+            app:targetId="@id/view" />
+
+        <!--        <OnSwipe-->
+        <!--            app:dragDirection="dragDown"-->
+        <!--            app:touchAnchorSide="bottom"-->
+        <!--            app:touchAnchorId="@id/view"-->
+        <!--            />-->
+
+        <KeyFrameSet>
+            <KeyAttribute
+                android:rotation="360"
+                android:scaleX="3"
+                android:scaleY="3"
+                app:framePosition="50"
+                app:motionTarget="@id/view" />
+
+            <KeyPosition
+                app:framePosition="50"
+                app:keyPositionType="parentRelative"
+                app:motionTarget="@id/view"
+                app:percentX="0.5"
+                app:percentY="0.5" />
+
+            <KeyTimeCycle
+                android:rotation="0"
+                app:framePosition="0"
+                app:motionTarget="@id/view"
+                app:wavePeriod="0"
+                app:waveShape="sin" />
+
+            <KeyTimeCycle
+                android:rotation="60"
+                app:framePosition="50"
+                app:motionTarget="@id/view"
+                app:wavePeriod="3"
+                app:waveShape="sin" />
+
+        </KeyFrameSet>
+
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+
+        <Constraint android:id="@+id/view">
+            <Motion app:pathMotionArc="startVertical" />
+            <Layout
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!--            <CustomAttribute-->
+            <!--                app:attributeName="backgroundColor"-->
+            <!--                app:customColorValue="@color/purple_500" />-->
+
+            <CustomAttribute
+                app:attributeName="Saturation"
+                app:customFloatValue="1" />
+
+        </Constraint>
+
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+
+        <Constraint android:id="@+id/view">
+            <Motion app:pathMotionArc="startVertical" />
+            <Layout
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <Transform
+                android:rotation="360"
+                android:scaleX="1.5"
+                android:scaleY="1.5" />
+
+            <!--            <CustomAttribute-->
+            <!--                app:attributeName="backgroundColor"-->
+            <!--                app:customColorValue="@color/teal_200" />-->
+
+            //图片饱和度
+            <CustomAttribute
+                app:attributeName="Saturation"
+                app:customFloatValue="0.3" />
+
+        </Constraint>
+
+    </ConstraintSet>
+
+</MotionScene>
